@@ -1,0 +1,23 @@
+version: "3.7"
+services:
+  fhir-server-db:
+    image: postgres
+    container_name: fhir-server-db
+    restart: always
+    environment:
+      POSTGRES_DB: 'hapi'
+      POSTGRES_USER: 'admin'
+      POSTGRES_PASSWORD: 'admin'
+    ports:
+      - "5432:5432"
+  fhir-server:
+    image: "hapi-fhir"
+    net: "host"
+    ports:
+      - "8080:8080"
+    depends_on:
+      - fhir-server-db
+  synthetic:
+     image: synthetic
+     container_name: fhir-patient-generator
+     entrypoint: sh
