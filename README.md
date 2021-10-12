@@ -9,3 +9,4 @@ According to the instructions given in mail
 6. created Docker compose with all these three DB,FHIR and synthetic generator.
 7. Created make start file using docker-compose up
 8. created make stop file using  docker-compose down
+9. Uploaded the output/fhir/hospitalinformation.....json bundle and output/fhir/practitionerinformation.....json bundle, for that got response as above(practitionerroleoutput) for practitioner role. Can able to see same thing in my FHIR console.
